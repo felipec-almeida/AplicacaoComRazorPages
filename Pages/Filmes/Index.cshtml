@@ -1,0 +1,85 @@
+﻿@page
+@model RazorPagesFilmes.Pages.Filmes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a style="text-decoration: none" class="mb-2 mt-2 btn btn-outline-info" asp-page="Create">Criar novo Filme</a>
+</p>
+
+<hr />
+
+<form class="row g-3">
+  <div style="margin-top: 1.25em" class="col-2">
+      <label for="BuscaGenero"><strong>Gêneros</strong></label>
+      <select class="form-select"  id="BuscaGenero" asp-for="FilmeGenero" asp-items="@Model.Generos">
+            <option value="">Todos</option>
+      </select>
+  </div>
+  <div class="col-4">
+    <label for="inputTituloFilme" class="mb-1"><strong>Buscar Filme:</strong></label>
+    <input type="search" class="form-control" id="inputTituloFilme" asp-for="TermoBusca" placeholder="Digite o título do filme">
+  </div>
+  <div class="col-4">
+    <input style="margin-top: 1.75em" type="submit" value="Buscar" class="col-4 me-2 btn btn-outline-success mb-3" />
+  </div>
+</form>
+
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].Genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].DataLancamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].AvaliacaoCritica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filme[0].AvaliacaoPublico)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Filme) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLancamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvaliacaoCritica)%
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvaliacaoPublico)%
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

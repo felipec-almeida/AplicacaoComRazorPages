@@ -1,0 +1,59 @@
+﻿@page
+@model RazorPagesFilmes.Pages.Filmes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Criar</h1>
+
+<h4>Adicionar um Filme ao Catálogo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.Titulo" class="control-label mb-1"></label>
+                <input asp-for="Filme.Titulo" placeholder="Digite o titulo do filme" class="form-control" />
+                <span asp-validation-for="Filme.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.Genero" class="control-label mb-1"></label>
+                <input asp-for="Filme.Genero" placeholder="Digite o gênero do filme" class="form-control" />
+                <span asp-validation-for="Filme.Genero" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.Preco" class="control-label mb-1"></label>
+                <input asp-for="Filme.Preco" placeholder="Digite preço do filme" class="form-control" />
+                <span asp-validation-for="Filme.Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.AvaliacaoCritica" class="control-label mb-1"></label>
+                <input asp-for="Filme.AvaliacaoCritica" placeholder="Digite a avaliação crítica do filme" class="form-control" />
+                <span asp-validation-for="Filme.AvaliacaoCritica" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.AvaliacaoPublico" class="control-label mb-1"></label>
+                <input asp-for="Filme.AvaliacaoPublico" placeholder="Digite a avaliação do público ao filme" class="form-control" />
+                <span asp-validation-for="Filme.AvaliacaoPublico" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Filme.DataLancamento" class="control-label mb-1"></label>
+                <input asp-for="Filme.DataLancamento" class="form-control" />
+                <span asp-validation-for="Filme.DataLancamento" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <input type="submit" value="Adicionar" class="col-lg-6 mb-3 btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Voltar para Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,55 @@
+﻿@page
+@model RazorPagesFilmes.Pages.Filmes.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Filme: @Html.DisplayFor(model => model.Filme.Titulo)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.Titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.Titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.Genero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.Genero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.Preco)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.Preco)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.AvaliacaoCritica)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.AvaliacaoCritica)%
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.AvaliacaoPublico)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.AvaliacaoPublico)%
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Filme.DataLancamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Filme.DataLancamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Filme?.Id" class="btn btn-outline-success">Editar</a>
+    <a asp-page="./Index" class="btn btn-outline-warning">Voltar para Lista</a>
+</div>
